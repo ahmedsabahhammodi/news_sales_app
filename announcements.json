@@ -1,1 +1,54 @@
-
+{
+  "announcements": [
+    {
+      "id": "1",
+      "title": "🎉 عرض خاص — خصم 20% على الترقية",
+      "description": "احصل على خصم 20% عند ترقية باقتك إلى النسخة الاحترافية قبل نهاية الشهر. لا تفوّت الفرصة!",
+      "imageUrl": "",
+      "iconName": "local_offer",
+      "actionUrl": "https://scoopad.com/upgrade",
+      "type": "promo",
+      "expiryDate": "2026-08-30T23:59:59Z"
+    },
+    {
+      "id": "2",
+      "title": "🚀 تحديث جديد v2.5 — تقارير متقدمة",
+      "description": "تمت إضافة تقارير الأرباح التفصيلية ونظام التقسيط المحسّن وتنبيهات المخزون المنخفض",
+      "imageUrl": "",
+      "iconName": "new_releases",
+      "actionUrl": "",
+      "type": "news",
+      "expiryDate": "2026-09-15T23:59:59Z"
+    },
+    {
+      "id": "3",
+      "title": "💡 نصيحة: فعّل النسخ الاحتياطي اليومي",
+      "description": "حماية بياناتك أولوية! فعّل النسخ الاحتياطي التلقائي من الإعدادات لحفظ بياناتك على Google Drive",
+      "imageUrl": "",
+      "iconName": "tips_and_updates",
+      "actionUrl": "",
+      "type": "tip",
+      "expiryDate": "2026-12-31T23:59:59Z"
+    },
+    {
+      "id": "4",
+      "title": "📦 ميزة جديدة: تتبع المخزون بالباركود",
+      "description": "الآن يمكنك مسح الباركود مباشرة من كاميرا الجهاز لإضافة المنتجات بسرعة فائقة",
+      "imageUrl": "",
+      "iconName": "qr_code_scanner",
+      "actionUrl": "",
+      "type": "news",
+      "expiryDate": "2026-10-01T23:59:59Z"
+    },
+    {
+      "id": "5",
+      "title": "🔥 عرض العيد — باقة سنوية بسعر 9 أشهر",
+      "description": "بمناسبة عيد الأضحى المبارك، اشترك بالباقة السنوية واحصل على 3 أشهر مجاناً!",
+      "imageUrl": "",
+      "iconName": "celebration",
+      "actionUrl": "https://scoopad.com/eid-offer",
+      "type": "promo",
+      "expiryDate": "2026-07-15T23:59:59Z"
+    }
+  ]
+}
