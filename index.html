@@ -448,8 +448,8 @@
             <!-- Search Form -->
             <form id="searchForm" class="search-form" onsubmit="return handleSearch(event)">
                 <div class="form-group">
-                    <label>اسم الطالب أو الباركود</label>
-                    <input type="text" id="searchInput" class="form-input" placeholder="أدخل الاسم الثلاثي أو الرباعي أو رقم الباركود" required>
+                    <label>رقم الباركود</label>
+                    <input type="text" id="searchInput" class="form-input" placeholder="أدخل رقم الباركود الخاص بالطالب" required>
                 </div>
                 <div class="form-group">
                     <label>الفصل الدراسي</label>
@@ -646,8 +646,8 @@ async function handleSearch(e) {
     const query = document.getElementById('searchInput').value.trim();
     const termId = document.getElementById('termSelect').value;
 
-    if (!query || query.length < 2) {
-        showStatus('الرجاء إدخال اسم الطالب (حرفين على الأقل) أو الباركود', 'error');
+    if (!query) {
+        showStatus('الرجاء إدخال رقم الباركود', 'error');
         return;
     }
     if (!termId) {
@@ -660,16 +660,7 @@ async function handleSearch(e) {
     showStatus('', '');
 
     try {
-        // Normalize Arabic text for search
-        const normalized = query.replace(/ى/g, 'ي').replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه');
-
-        // Search student by name or barcode
-        let studentQuery = sb
-            .from('students')
-            .select('*')
-            .eq('school_code', currentSchoolCode);
-
-        // Try barcode first (exact match)
+        // Search student by barcode only (exact match)
         let { data: students } = await sb
             .from('students')
             .select('*')
@@ -677,19 +668,8 @@ async function handleSearch(e) {
             .eq('barcode', query)
             .limit(1);
 
-        // If not found by barcode, search by name
         if (!students || students.length === 0) {
-            const { data: nameResults } = await sb
-                .from('students')
-                .select('*')
-                .eq('school_code', currentSchoolCode)
-                .ilike('name', `%${query}%`)
-                .limit(1);
-            students = nameResults;
-        }
-
-        if (!students || students.length === 0) {
-            showStatus('لم يتم العثور على الطالب. يرجى التأكد من صحة الاسم أو الباركود.', 'error');
+            showStatus('لم يتم العثور على الطالب. يرجى التأكد من صحة رقم الباركود.', 'error');
             return;
         }
 
